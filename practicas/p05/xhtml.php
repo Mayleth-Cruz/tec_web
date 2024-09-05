@@ -139,4 +139,20 @@ echo "\$f: ";
 print_r($f); 
 echo '<br> ';
 
+echo "Versión de PHP: " . PHP_VERSION . "\n"; 
+
+if (isset($_SERVER['SERVER_SOFTWARE'])) {
+    echo "Versión de Apache: " . $_SERVER['SERVER_SOFTWARE'] . "\n";
+} else {
+    echo "No se puede determinar la versión de Apache.\n";
+}
+
+echo "Sistema operativo del servidor: " . PHP_OS . "\n";
+
+if (isset($_SERVER['HTTP_ACCEPT_LANGUAGE'])) {
+    echo "Idioma del navegador: " . $_SERVER['HTTP_ACCEPT_LANGUAGE'] . "\n";
+} else {
+    echo "No se pudo determinar el idioma.\n";
+}
+
 ?>
