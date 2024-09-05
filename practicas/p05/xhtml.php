@@ -112,4 +112,31 @@ var_dump((bool) $e);
 echo '<br> ';
 echo "\$f: ";
 var_dump((bool) $f); 
+echo '<br> ';
+
+$a = "0";
+$b = "TRUE";
+$c = FALSE;
+$d = ($a OR $b);
+$e = ($a AND $c);
+$f = ($a XOR $b);
+
+
+echo "Valores usando var_export():\n";
+echo "\$d: " . var_export($d, true) . "\n"; 
+echo "\$e: " . var_export($e, true) . "\n"; 
+echo "\$f: " . var_export($f, true) . "\n"; 
+
+
+echo "Valores usando print_r():\n";
+echo "\$d: ";
+print_r($d); 
+echo '<br> ';
+echo "\$e: ";
+print_r($e); 
+echo '<br> ';
+echo "\$f: ";
+print_r($f); 
+echo '<br> ';
+
 ?>
