@@ -89,4 +89,27 @@ $a = "7 personas";
 $b = (integer) $a;
 $a = "9E3";
 $c = (double) $a;
+
+$d = 0; 
+$e = 1; 
+$f = "";
+
+echo "Valores booleanos usando var_dump():\n";
+echo "\$a: ";
+var_dump((bool) $a); 
+echo '<br> ';
+echo "\$b: ";
+var_dump((bool) $b); 
+echo '<br> ';
+echo "\$c: ";
+var_dump((bool) $c); 
+echo '<br> ';
+echo "\$d: ";
+var_dump((bool) $d); 
+echo '<br> ';
+echo "\$e: ";
+var_dump((bool) $e); 
+echo '<br> ';
+echo "\$f: ";
+var_dump((bool) $f); 
 ?>
