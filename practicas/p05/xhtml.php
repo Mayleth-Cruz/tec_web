@@ -28,4 +28,11 @@ echo "<p><strong>Después de cambiar el valor de \$a:</strong></p>";
 echo "<p><strong>\$a:</strong> " . $a . "</p>";
 echo "<p><strong>\$c:</strong> " . $c . "</p>";
 
+$a = "PHP server";
+$b = &$a;
+
+$a = "Nuevo valor";
+echo "<p><strong>Después de cambiar el valor de \$a:</strong></p>";
+echo "<p><strong>\$a:</strong> " . $a . "</p>";
+echo "<p><strong>\$b:</strong> " . $b . "</p>";
 ?>
