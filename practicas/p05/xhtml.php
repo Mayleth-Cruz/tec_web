@@ -66,24 +66,27 @@ $a .= $b;
 $b *= $c;
 $z[0] = "MySQL";
 
-// Mostrar valores usando $GLOBALS
+
 echo "Valores usando \$GLOBALS:\n";
 echo '<br> ';
 echo "\$GLOBALS['a']: ";
-var_dump($GLOBALS['a']); // Muestra el valor de $a
+var_dump($GLOBALS['a']); 
 echo '<br> ';
 echo "\$GLOBALS['z']: ";
-print_r($GLOBALS['z']); // Muestra el contenido de $z
+print_r($GLOBALS['z']); 
 echo '<br> ';
 echo "\$GLOBALS['b']: ";
-var_dump($GLOBALS['b']); // Muestra el valor de $b
+var_dump($GLOBALS['b']); 
 echo '<br> ';
 echo "\$GLOBALS['c']: ";
-var_dump($GLOBALS['c']); // Muestra el valor de $c
+var_dump($GLOBALS['c']); 
 echo '<br> ';
-// Mostrar valores de $z[0] usando $GLOBALS directamente
+
 echo "\$GLOBALS['z'][0]: ";
-var_dump($GLOBALS['z'][0]); // Muestra el valor de $z[0]
+var_dump($GLOBALS['z'][0]); 
 
-
+$a = "7 personas";
+$b = (integer) $a;
+$a = "9E3";
+$c = (double) $a;
 ?>
