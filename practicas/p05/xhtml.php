@@ -35,4 +35,27 @@ $a = "Nuevo valor";
 echo "<p><strong>Después de cambiar el valor de \$a:</strong></p>";
 echo "<p><strong>\$a:</strong> " . $a . "</p>";
 echo "<p><strong>\$b:</strong> " . $b . "</p>";
+
+$a = "PHP5";
+var_dump($a); 
+
+$z[] = &$a; 
+print_r($z); 
+
+$b = "5a version de PHP";
+var_dump($b); 
+
+$c = $b * 10; 
+var_dump($c); 
+
+$a .= $b; 
+var_dump($a); 
+print_r($z); 
+
+$b *= $c; 
+var_dump($b); 
+
+$z[0] = "MySQL"; 
+print_r($z); 
+
 ?>
