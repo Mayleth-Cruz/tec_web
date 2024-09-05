@@ -58,4 +58,32 @@ var_dump($b);
 $z[0] = "MySQL"; 
 print_r($z); 
 
+$a = "PHP5";
+$z[] = &$a;
+$b = "5a version de PHP";
+$c = $b * 10;
+$a .= $b;
+$b *= $c;
+$z[0] = "MySQL";
+
+// Mostrar valores usando $GLOBALS
+echo "Valores usando \$GLOBALS:\n";
+echo '<br> ';
+echo "\$GLOBALS['a']: ";
+var_dump($GLOBALS['a']); // Muestra el valor de $a
+echo '<br> ';
+echo "\$GLOBALS['z']: ";
+print_r($GLOBALS['z']); // Muestra el contenido de $z
+echo '<br> ';
+echo "\$GLOBALS['b']: ";
+var_dump($GLOBALS['b']); // Muestra el valor de $b
+echo '<br> ';
+echo "\$GLOBALS['c']: ";
+var_dump($GLOBALS['c']); // Muestra el valor de $c
+echo '<br> ';
+// Mostrar valores de $z[0] usando $GLOBALS directamente
+echo "\$GLOBALS['z'][0]: ";
+var_dump($GLOBALS['z'][0]); // Muestra el valor de $z[0]
+
+
 ?>
