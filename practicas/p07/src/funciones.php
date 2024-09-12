@@ -25,4 +25,12 @@ function encontrarMultiploWhile($numero) {
         }
     }
 }
+// Función para encontrar el primer múltiplo de un número dado usando do-while
+function encontrarMultiploDoWhile($numero) {
+    do {
+        $aleatorio = rand(1, 1000);
+    } while ($aleatorio % $numero != 0);
+    return $aleatorio;
+}
+
 
