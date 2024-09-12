@@ -16,3 +16,13 @@ function generarSecuenciaImparParImpar(&$matriz) {
     } while (!($fila[0] % 2 != 0 && $fila[1] % 2 == 0 && $fila[2] % 2 != 0));
     return $iteraciones;
 }
+// Función para encontrar el primer múltiplo de un número dado usando while
+function encontrarMultiploWhile($numero) {
+    while (true) {
+        $aleatorio = rand(1, 1000);
+        if ($aleatorio % $numero == 0) {
+            return $aleatorio;
+        }
+    }
+}
+
