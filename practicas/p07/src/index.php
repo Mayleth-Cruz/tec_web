@@ -1,7 +1,9 @@
 <?php
 include 'funciones.php';
 
+
 $numero = isset($_GET['numero']) ? $_GET['numero'] : null;
+
 
 // 1. Comprobar si un número es múltiplo de 5 y 7
 if ($numero !== null) {
@@ -20,24 +22,3 @@ foreach ($matriz as $fila) {
     echo implode(", ", $fila) . "<br>";
 }
 echo "<p>Se obtuvieron " . (count($matriz) * 3) . " números en $iteraciones iteraciones.</p>";
-
-// 3. Encontrar primer múltiplo con ciclo while
-if ($numero !== null) {
-    $multiplo = encontrarMultiploWhile($numero);
-    echo "<p>Primer múltiplo de $numero encontrado con while: $multiplo</p>";
-    
-    // Encontrar primer múltiplo con ciclo do-while
-    $multiploDoWhile = encontrarMultiploDoWhile($numero);
-    echo "<p>Primer múltiplo de $numero encontrado con do-while: $multiploDoWhile</p>";
-}
-
-// 4. Crear un arreglo ASCII y mostrarlo en una tabla
-$arregloASCII = generarArregloASCII();
-echo "<h3>Arreglo ASCII:</h3>";
-echo "<table border='1'>";
-echo "<tr><th>Índice</th><th>Valor</th></tr>";
-foreach ($arregloASCII as $key => $value) {
-    echo "<tr><td>$key</td><td>$value</td></tr>";
-}
-echo "</table>";
-?>
