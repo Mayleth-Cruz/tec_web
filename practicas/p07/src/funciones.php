@@ -32,5 +32,14 @@ function encontrarMultiploDoWhile($numero) {
     } while ($aleatorio % $numero != 0);
     return $aleatorio;
 }
+// Función para crear un arreglo de ASCII del 97 al 122 con letras de la a a la z
+function generarArregloASCII() {
+    $arreglo = [];
+    for ($i = 97; $i <= 122; $i++) {
+        $arreglo[$i] = chr($i);
+    }
+    return $arreglo;
+}
+?>
 
 
