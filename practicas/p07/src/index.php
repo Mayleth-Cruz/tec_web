@@ -22,3 +22,12 @@ foreach ($matriz as $fila) {
     echo implode(", ", $fila) . "<br>";
 }
 echo "<p>Se obtuvieron " . (count($matriz) * 3) . " números en $iteraciones iteraciones.</p>";
+// 3. Encontrar primer múltiplo con ciclo while
+if ($numero !== null) {
+    $multiplo = encontrarMultiploWhile($numero);
+    echo "<p>Primer múltiplo de $numero encontrado con while: $multiplo</p>";
+   
+    // Encontrar primer múltiplo con ciclo do-while
+    $multiploDoWhile = encontrarMultiploDoWhile($numero);
+    echo "<p>Primer múltiplo de $numero encontrado con do-while: $multiploDoWhile</p>";
+}
