@@ -67,4 +67,8 @@ if (!empty($tope) && is_numeric($tope)) {
     }
 
     $link->close();
+} else {
+    echo '<?xml version="1.0" encoding="UTF-8"?><error>El parámetro "tope" debe ser un número válido.</error>';
+}
+?>
 
