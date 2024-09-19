@@ -35,6 +35,25 @@ if (!empty($tope) && is_numeric($tope)) {
         echo '<body>';
         echo '<div class="container">';
         echo '<h3 class="my-4">Productos con Unidades &lt;= ' . htmlspecialchars($tope) . '</h3>';
+        if ($result->num_rows > 0) {
+            echo '<table class="table table-striped">';
+            echo '<thead class="thead-dark">';
+            echo '<tr><th scope="col">#</th><th scope="col">Nombre</th><th scope="col">Marca</th><th scope="col">Modelo</th><th scope="col">Precio</th><th scope="col">Unidades</th><th scope="col">Detalles</th><th scope="col">Imagen</th></tr>';
+            echo '</thead>';
+            echo '<tbody>';
 
+            while ($row = $result->fetch_assoc()) {
+                $imgSrc = htmlspecialchars($row['imagen']);
+                echo '<tr>';
+                echo '<th scope="row">' . htmlspecialchars($row['Id']) . '</th>';
+                echo '<td>' . htmlspecialchars($row['nombre']) . '</td>';
+                echo '<td>' . htmlspecialchars($row['marca']) . '</td>';
+                echo '<td>' . htmlspecialchars($row['modelo']) . '</td>';
+                echo '<td>' . htmlspecialchars($row['precio']) . '</td>';
+                echo '<td>' . htmlspecialchars($row['unidades']) . '</td>';
+                echo '<td>' . htmlspecialchars($row['detalles']) . '</td>';
+                echo '<td><img src="' . $imgSrc . '" alt="Imagen de producto" style="max-width: 150px; max-height: 150px;" /></td>';
+                echo '</tr>';
+            }
 
 
