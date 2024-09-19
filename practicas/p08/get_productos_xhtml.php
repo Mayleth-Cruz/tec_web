@@ -55,5 +55,8 @@ if (!empty($tope) && is_numeric($tope)) {
                 echo '<td><img src="' . $imgSrc . '" alt="Imagen de producto" style="max-width: 150px; max-height: 150px;" /></td>';
                 echo '</tr>';
             }
-
+            echo '</tbody></table>';
+        } else {
+            echo '<div class="alert alert-warning" role="alert">No se encontraron productos con unidades menores o iguales a ' . htmlspecialchars($tope) . '.</div>';
+        }
 
