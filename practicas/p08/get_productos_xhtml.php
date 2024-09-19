@@ -59,4 +59,12 @@ if (!empty($tope) && is_numeric($tope)) {
         } else {
             echo '<div class="alert alert-warning" role="alert">No se encontraron productos con unidades menores o iguales a ' . htmlspecialchars($tope) . '.</div>';
         }
+        echo '</div>'; // container
+        echo '</body></html>';
+
+        /** liberar recursos */
+        $stmt->close();
+    }
+
+    $link->close();
 
