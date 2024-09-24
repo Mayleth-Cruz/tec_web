@@ -23,3 +23,8 @@ $imagen = $_FILES['imagen']['name'];
 if (empty($nombre) || empty($marca) || empty($modelo) || empty($precio) || empty($unidades)) {
     die("<h1>Error</h1><p>Todos los campos son obligatorios.</p>");
 }
+if ($stmt->execute()) {
+    // Mover la imagen subida a la carpeta 'img'
+    $target_dir = "img/";
+    $target_file = $target_dir . basename($imagen);
+    move_uploaded_file($_FILES["imagen"]["tmp_name"], $target_file);
