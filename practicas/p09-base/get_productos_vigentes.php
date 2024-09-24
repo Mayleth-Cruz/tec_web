@@ -20,6 +20,11 @@ if (!empty($tope) && is_numeric($tope)) {
     /** Establecer el charset de la conexión */
     $link->set_charset("utf8");
     
+    // Consulta para seleccionar productos no eliminados y que tengan unidades <= $tope
+    if ($stmt = $link->prepare("SELECT * FROM productos WHERE unidades <= ? AND eliminado = 0")) {
+        $stmt->bind_param("i", $tope);
+        $stmt->execute();
+        $result = $stmt->get_result();
 
         /** Generar documento XHTML */
         echo '<?xml version="1.0" encoding="UTF-8"?>';
