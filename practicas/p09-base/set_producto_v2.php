@@ -40,6 +40,9 @@ $sql_insert = "INSERT INTO productos (nombre, marca, modelo, precio, detalles, u
 $stmt = $conn->prepare($sql_insert);
 $stmt->bind_param("sssdsis", $nombre, $marca, $modelo, $precio, $detalles, $unidades, $imagen);
 
+$sql = "INSERT INTO productos (nombre, marca, modelo, precio, detalles, unidades, imagen, eliminado) 
+VALUES ('{$nombre}', '{$marca}', '{$modelo}', {$precio}, '{$detalles}', {$unidades}, '{$imagen}', 0)";
+
 if ($stmt->execute()) {
     // Mover la imagen subida a la carpeta 'img'
     $target_dir = "img/";
