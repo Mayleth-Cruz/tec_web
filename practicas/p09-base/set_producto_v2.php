@@ -18,3 +18,8 @@ $precio = $_POST['precio'];
 $detalles = $_POST['detalles'];
 $unidades = $_POST['unidades'];
 $imagen = $_FILES['imagen']['name'];
+
+// Validar que los campos no estén vacíos
+if (empty($nombre) || empty($marca) || empty($modelo) || empty($precio) || empty($unidades)) {
+    die("<h1>Error</h1><p>Todos los campos son obligatorios.</p>");
+}
