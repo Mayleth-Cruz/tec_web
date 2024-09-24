@@ -34,6 +34,11 @@ $result = $stmt->get_result();
 if ($result->num_rows > 0) {
     die("<h1>Error</h1><p>El producto ya existe en la base de datos.</p>");
 }
+//Insertar los datos en la base 
+$sql_insert = "INSERT INTO productos (nombre, marca, modelo, precio, detalles, unidades, imagen) 
+               VALUES (?, ?, ?, ?, ?, ?, ?)";
+$stmt = $conn->prepare($sql_insert);
+$stmt->bind_param("sssdsis", $nombre, $marca, $modelo, $precio, $detalles, $unidades, $imagen);
 
 if ($stmt->execute()) {
     // Mover la imagen subida a la carpeta 'img'
