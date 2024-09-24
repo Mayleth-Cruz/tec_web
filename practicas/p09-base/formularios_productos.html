@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrar Producto</title>
+</head>
+<body>
+
+    <h1>Registrar Nuevo Producto</h1>
+
+    <form action="set_producto_v2.php" method="POST" enctype="multipart/form-data" id="formularioProductos">
+        
+        <fieldset>
+            <legend>Nombre del Producto</legend>
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required>
+        </fieldset>
+        <br>
+
+        <fieldset>
+            <legend>Marca</legend>
+            <label for="marca">Marca:</label>
+            <input type="text" id="marca" name="marca" required>
+        </fieldset>
+        <br>
+
+        <fieldset>
+            <legend>Modelo</legend>
+            <label for="modelo">Modelo:</label>
+            <input type="text" id="modelo" name="modelo" required>
+        </fieldset>
+        <br>
+
+        <fieldset>
+            <legend>Precio</legend>
+            <label for="precio">Precio:</label>
+            <input type="number" id="precio" name="precio" step="0.01" required>
+        </fieldset>
+        <br>
+
+        <fieldset>
+            <legend>Detalles del Producto</legend>
+            <label for="detalles">Detalles:</label>
+            <textarea id="detalles" name="detalles" rows="4" required></textarea>
+        </fieldset>
+        <br>
+
+        <fieldset>
+            <legend>Unidades disponibles</legend>
+            <label for="unidades">Unidades:</label>
+            <input type="number" id="unidades" name="unidades" required>
+        </fieldset>
+        <br>
+
+        <fieldset>
+            <legend>Imagen del Producto</legend>
+            <label for="imagen">Imagen:</label>
+            <input type="file" id="imagen" name="imagen" accept="image/*" required>
+        </fieldset>
+        <br>
+
+        <input type="submit" value="Registrar Producto">
+        
+    </form>
+
+</body>
+</html>
+
