@@ -23,6 +23,18 @@ $imagen = $_FILES['imagen']['name'];
 if (empty($nombre) || empty($marca) || empty($modelo) || empty($precio) || empty($unidades)) {
     die("<h1>Error</h1><p>Todos los campos son obligatorios.</p>");
 }
+
+// Validar que el nombre, modelo y marca no existan en la base de datos
+$sql_check = "SELECT * FROM productos WHERE nombre = ? AND marca = ? AND modelo = ?";
+$stmt = $conn->prepare($sql_check);
+$stmt->bind_param("sss", $nombre, $marca, $modelo);
+$stmt->execute();
+$result = $stmt->get_result();
+
+if ($result->num_rows > 0) {
+    die("<h1>Error</h1><p>El producto ya existe en la base de datos.</p>");
+}
+
 if ($stmt->execute()) {
     // Mover la imagen subida a la carpeta 'img'
     $target_dir = "img/";
