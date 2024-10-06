@@ -106,8 +106,12 @@
         event.preventDefault();
         return;
     }
-
-   
+    // Validación de la imagen
+    const imagenInput = document.getElementById('imagen');
+    if (!imagenInput.value) {
+        alert('No se ha seleccionado una imagen. Se utilizará la imagen por defecto en el servidor.');
+  
+    }  
 });
 
     </script>
