@@ -13,55 +13,76 @@
         <fieldset>
             <legend>Nombre del Producto</legend>
             <label for="nombre">Nombre:</label>
-            <input type="text" id="nombre" name="nombre" required>
+            <input type="text" id="nombre" name="nombre" required maxlength="100">
         </fieldset>
         <br>
 
         <fieldset>
             <legend>Marca</legend>
             <label for="marca">Marca:</label>
-            <input type="text" id="marca" name="marca" required>
+            <select id="marca" name="marca" required>
+                <option value="">Seleccione una marca</option>
+                <option value="Marca PenguinLibros">PenguinLibros</option>
+                <option value="Marca Alfaguara">Alfaguara</option>
+                <option value="Marca Wattpad">Wattpad</option>
+                <option value="Marca Planeta">Planeta</option>
+            </select>
         </fieldset>
         <br>
 
         <fieldset>
             <legend>Modelo</legend>
             <label for="modelo">Modelo:</label>
-            <input type="text" id="modelo" name="modelo" required>
+            <input type="text" id="modelo" name="modelo" required maxlength="25" pattern="[A-Za-z0-9]+">
         </fieldset>
         <br>
 
         <fieldset>
             <legend>Precio</legend>
             <label for="precio">Precio:</label>
-            <input type="number" id="precio" name="precio" step="0.01" required>
+            <input type="number" id="precio" name="precio" step="0.01" required min="99.99">
         </fieldset>
         <br>
 
         <fieldset>
             <legend>Detalles del Producto</legend>
             <label for="detalles">Detalles:</label>
-            <textarea id="detalles" name="detalles" rows="4" required></textarea>
+            <textarea id="detalles" name="detalles" rows="4" maxlength="250"></textarea>
         </fieldset>
         <br>
 
         <fieldset>
             <legend>Unidades disponibles</legend>
             <label for="unidades">Unidades:</label>
-            <input type="number" id="unidades" name="unidades" required>
+            <input type="number" id="unidades" name="unidades" required min="0">
         </fieldset>
         <br>
 
         <fieldset>
             <legend>Imagen del Producto</legend>
             <label for="imagen">Imagen:</label>
-            <input type="file" id="imagen" name="imagen" accept="image/*" required>
+            <input type="file" id="imagen" name="imagen" accept="image/*">
         </fieldset>
         <br>
 
         <input type="submit" value="Registrar Producto">
         
     </form>
+
+    <script>
+        document.getElementById('formularioProductos').addEventListener('submit', function(event) {
+    // Validación del nombre
+    const nombre = document.getElementById('nombre').value.trim();
+    if (nombre === '' || nombre.length > 100) {
+        alert('El nombre es obligatorio y debe tener 100 caracteres o menos.');
+        event.preventDefault();
+        return;
+    }
+
+   
+});
+
+    </script>
 
 </body>
 </html>
