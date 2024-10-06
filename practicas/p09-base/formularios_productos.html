@@ -78,6 +78,13 @@
         event.preventDefault();
         return;
     }
+    // Validación de la marca
+    const marca = document.getElementById('marca').value;
+    if (marca === '') {
+        alert('Debe seleccionar una marca.');
+        event.preventDefault();
+        return;
+    }
 
    
 });
