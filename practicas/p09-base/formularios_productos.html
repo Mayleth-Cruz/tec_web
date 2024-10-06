@@ -92,6 +92,13 @@
         event.preventDefault();
         return;
     }
+    // Validación de unidades mayor o igual a 0
+    const unidades = parseInt(document.getElementById('unidades').value);
+    if (isNaN(unidades) || unidades < 0) {
+        alert('Las unidades deben ser un número mayor o igual a 0');
+        event.preventDefault();
+        return;
+    }
 
    
 });
