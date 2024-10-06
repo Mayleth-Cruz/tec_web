@@ -99,6 +99,13 @@
         event.preventDefault();
         return;
     }
+    // Validación opcional de detalles (si se han ingresado)
+    const detalles = document.getElementById('detalles').value.trim();
+    if (detalles.length > 250) {
+        alert('Los detalles no pueden exceder los 250 caracteres.');
+        event.preventDefault();
+        return;
+    }
 
    
 });
