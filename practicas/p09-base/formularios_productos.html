@@ -85,6 +85,13 @@
         event.preventDefault();
         return;
     }
+    // Validación del precio mayor a 99.99
+    const precio = parseFloat(document.getElementById('precio').value);
+    if (isNaN(precio) || precio <= 99.99) {
+        alert('El precio debe ser mayor a 99.99');
+        event.preventDefault();
+        return;
+    }
 
    
 });
