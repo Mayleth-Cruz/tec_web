@@ -73,9 +73,8 @@
     <script>
         // Obtener los parámetros GET de la URL
         const urlParams = new URLSearchParams(window.location.search);
-
-        // Si hay un id en la URL, se trata de una modificación
-        if (urlParams.has('id')) {
+         // Si hay un id en la URL, se trata de una modificación
+         if (urlParams.has('id')) {
             document.getElementById('formTitle').textContent = 'Modificar Producto';
             document.getElementById('submitBtn').value = 'Guardar Cambios';
             
