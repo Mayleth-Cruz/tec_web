@@ -20,3 +20,7 @@ $detalles = $_POST['detalles'];
 $unidades = $_POST['unidades'];
 $imagen = $_FILES['imagen']['name'];  // Nombre de la imagen
 $productId = $_POST['productId'];  // Para saber si es una actualización
+
+// Definir la ruta para almacenar la imagen si se sube una
+$uploadDir = 'img/';
+$uploadFile = $uploadDir . basename($_FILES['imagen']['name']);
