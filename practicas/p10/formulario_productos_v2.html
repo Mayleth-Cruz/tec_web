@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrar/Modificar Producto</title>
+</head>
+<body>
+
+    <h1 id="formTitle">Registrar Nuevo Producto</h1>
+
+    <form action="update_producto.php" method="POST" enctype="multipart/form-data" id="formularioProductosv2">
+        <fieldset>
+            <legend>Nombre del Producto</legend>
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required maxlength="100">
+        </fieldset>
+        <br>
+
+        <fieldset>
+            <legend>Marca</legend>
+            <label for="marca">Marca:</label>
+            <select id="marca" name="marca" required>
+                <option value="">Seleccione una marca</option>
+                <option value="Marca PenguinLibros">PenguinLibros</option>
+                <option value="Marca Alfaguara">Alfaguara</option>
+                <option value="Marca Wattpad">Wattpad</option>
+                <option value="Marca Planeta">Planeta</option>
+            </select>
+        </fieldset>
+        <br>
+
+        <fieldset>
+            <legend>Modelo</legend>
+            <label for="modelo">Modelo:</label>
+            <input type="text" id="modelo" name="modelo" required maxlength="25" pattern="[A-Za-z0-9]+">
+        </fieldset>
+        <br>
+
+        <fieldset>
+            <legend>Precio</legend>
+            <label for="precio">Precio:</label>
+            <input type="number" id="precio" name="precio" step="0.01" required min="99.99">
+        </fieldset>
+        <br>
+
+        <fieldset>
+            <legend>Detalles del Producto</legend>
+            <label for="detalles">Detalles:</label>
+            <textarea id="detalles" name="detalles" rows="4" maxlength="250"></textarea>
+        </fieldset>
+        <br>
+
+        <fieldset>
+            <legend>Unidades disponibles</legend>
+            <label for="unidades">Unidades:</label>
+            <input type="number" id="unidades" name="unidades" required min="0">
+        </fieldset>
+        <br>
+
+        <fieldset>
+            <legend>Imagen del Producto</legend>
+            <label for="imagen">Imagen:</label>
+            <input type="file" id="imagen" name="imagen" accept="image/*">
+        </fieldset>
+        <br>
+
+        <input type="hidden" id="productId" name="productId">
+        <input type="submit" value="Registrar Producto" id="submitBtn">
+        
+    </form>
+
+    <script>
+        // Obtener los parámetros GET de la URL
+        const urlParams = new URLSearchParams(window.location.search);
+
+        // Si hay un id en la URL, se trata de una modificación
+        if (urlParams.has('id')) {
+            document.getElementById('formTitle').textContent = 'Modificar Producto';
+            document.getElementById('submitBtn').value = 'Guardar Cambios';
+            
+            // Precargar los valores del producto
+            document.getElementById('productId').value = urlParams.get('id');
+            document.getElementById('nombre').value = urlParams.get('nombre');
+            document.getElementById('marca').value = urlParams.get('marca');
+            document.getElementById('modelo').value = urlParams.get('modelo');
+            document.getElementById('precio').value = urlParams.get('precio');
+            document.getElementById('unidades').value = urlParams.get('unidades');
+            document.getElementById('detalles').value = urlParams.get('detalles');
+        }
+
+        document.getElementById('formularioProductos').addEventListener('submit', function(event) {
+            // Validación del nombre
+            const nombre = document.getElementById('nombre').value.trim();
+            if (nombre === '' || nombre.length > 100) {
+                alert('El nombre es obligatorio y debe tener 100 caracteres o menos.');
+                event.preventDefault();
+                return;
+            }
+            // Validación de la marca
+            const marca = document.getElementById('marca').value;
+            if (marca === '') {
+                alert('Debe seleccionar una marca.');
+                event.preventDefault();
+                return;
+            }
+            // Validación del precio mayor a 99.99
+            const precio = parseFloat(document.getElementById('precio').value);
+            if (isNaN(precio) || precio <= 99.99) {
+                alert('El precio debe ser mayor a 99.99');
+                event.preventDefault();
+                return;
+            }
+            // Validación de unidades mayor o igual a 0
+            const unidades = parseInt(document.getElementById('unidades').value);
+            if (isNaN(unidades) || unidades < 0) {
+                alert('Las unidades deben ser un número mayor o igual a 0');
+                event.preventDefault();
+                return;
+            }
+            // Validación opcional de detalles (si se han ingresado)
+            const detalles = document.getElementById('detalles').value.trim();
+            if (detalles.length > 250) {
+                alert('Los detalles no pueden exceder los 250 caracteres.');
+                event.preventDefault();
+                return;
+            }
+            // Validación de la imagen
+            const imagenInput = document.getElementById('imagen');
+            if (!imagenInput.value && !urlParams.has('id')) {
+                alert('No se ha seleccionado una imagen. Se utilizará la imagen por defecto en el servidor.');
+            }
+        });
+
+    </script>
+
+</body>
+</html>
+
