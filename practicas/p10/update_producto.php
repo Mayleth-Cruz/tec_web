@@ -40,3 +40,29 @@ if (!empty($imagen)) {
     $row = $result->fetch_assoc();
     $imagen = $row['imagen']; 
 }
+// Consulta de actualización
+$sql = "UPDATE productos 
+        SET nombre = ?, 
+            marca = ?, 
+            modelo = ?, 
+            precio = ?, 
+            detalles = ?, 
+            unidades = ?, 
+            imagen = ? 
+        WHERE id = ?";
+        
+if ($stmt = $link->prepare($sql)) {
+    $stmt->bind_param("sssdissi", $nombre, $marca, $modelo, $precio, $detalles, $unidades, $imagen, $productId);
+    
+    if ($stmt->execute()) {
+        echo "Producto actualizado exitosamente.";
+    } else {
+        echo "ERROR: No se pudo ejecutar la consulta. " . mysqli_error($link);
+    }
+} else {
+    echo "ERROR: No se pudo preparar la consulta. " . mysqli_error($link);
+}
+
+// Cerrar la conexión
+mysqli_close($link);
+?>
