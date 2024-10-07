@@ -24,3 +24,19 @@ $productId = $_POST['productId'];  // Para saber si es una actualización
 // Definir la ruta para almacenar la imagen si se sube una
 $uploadDir = 'img/';
 $uploadFile = $uploadDir . basename($_FILES['imagen']['name']);
+// Si se subió una imagen, moverla al directorio destino
+if (!empty($imagen)) {
+    if (move_uploaded_file($_FILES['imagen']['tmp_name'], $uploadFile)) {
+        echo "Imagen subida con éxito.";
+    } else {
+        echo "ERROR al subir la imagen.";
+    }
+} else {
+    // Si no se sube una imagen, mantener la imagen existente
+    $stmt = $link->prepare("SELECT imagen FROM productos WHERE id = ?");
+    $stmt->bind_param("i", $productId);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $row = $result->fetch_assoc();
+    $imagen = $row['imagen']; 
+}
