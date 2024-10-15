@@ -15,3 +15,15 @@ if ($search) {
         // Buscamos por nombre, marca o detalles
         $query = "SELECT * FROM productos WHERE nombre LIKE '%{$search}%' OR marca LIKE '%{$search}%' OR detalles LIKE '%{$search}%'";
     }
+     // SE REALIZA LA QUERY DE BÚSQUEDA
+     if ($result = $conexion->query($query)) {
+        // SE OBTIENEN LOS RESULTADOS
+        while ($row = $result->fetch_array(MYSQLI_ASSOC)) {
+            // SE CODIFICAN A UTF-8 LOS DATOS Y SE MAPEAN AL ARREGLO DE RESPUESTA
+            $data[] = array_map('utf8_encode', $row);
+        }
+        $result->free();
+    } else {
+        die('Query Error: ' . mysqli_error($conexion));
+    }
+}
