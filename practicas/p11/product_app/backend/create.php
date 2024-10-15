@@ -15,3 +15,21 @@ if ($data) {
     // Comprobar si ya existe un producto con el mismo nombre
     $query = "SELECT * FROM productos WHERE nombre = '$nombre'";
     $result = $conexion->query($query);
+    if ($result->num_rows > 0) {
+        echo 'Error, el producto ya existe.';
+    } else {
+        // SE REALIZA LA QUERY DE INSERCIÓN
+        $insertQuery = "INSERT INTO productos (nombre, marca, modelo, precio, unidades, detalles, imagen) VALUES ('$nombre', '$marca', '$modelo', $precio, $unidades, '$detalles', '$imagen')";
+
+        if ($conexion->query($insertQuery)) {
+            echo 'Producto agregado exitosamente.';
+        } else {
+            echo 'Error al agregar el producto: ' . mysqli_error($conexion);
+        }
+    }
+
+    $result->free();
+}
+
+$conexion->close();
+?>
