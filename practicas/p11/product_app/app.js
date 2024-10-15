@@ -111,3 +111,27 @@ function buscarProducto(e) {
     };
     client.send("search=" + encodeURIComponent(search));
 }
+// FUNCIÓN PARA MOSTRAR LOS PRODUCTOS EN UNA TABLA HTML
+function mostrarProductos(productos) {
+    let template = '';
+
+    productos.forEach(producto => {
+        let descripcion = `
+            <li>precio: ${producto.precio}</li>
+            <li>unidades: ${producto.unidades}</li>
+            <li>modelo: ${producto.modelo}</li>
+            <li>marca: ${producto.marca}</li>
+            <li>detalles: ${producto.detalles}</li>
+        `;
+
+        template += `
+            <tr>
+                <td>${producto.id}</td>
+                <td>${producto.nombre}</td>
+                <td><ul>${descripcion}</ul></td>
+            </tr>
+        `;
+    });
+
+    document.getElementById("productos").innerHTML = template;
+}
