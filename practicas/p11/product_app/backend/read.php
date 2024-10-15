@@ -27,3 +27,7 @@ if ($search) {
         die('Query Error: ' . mysqli_error($conexion));
     }
 }
+// SE HACE LA CONVERSIÓN DE ARRAY A JSON
+echo json_encode($data, JSON_PRETTY_PRINT);
+$conexion->close();
+?>
