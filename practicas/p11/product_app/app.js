@@ -135,3 +135,25 @@ function mostrarProductos(productos) {
 
     document.getElementById("productos").innerHTML = template;
 }
+// SE CREA EL OBJETO DE CONEXIÓN COMPATIBLE CON EL NAVEGADOR
+function getXMLHttpRequest() {
+    var objetoAjax;
+    try {
+        objetoAjax = new XMLHttpRequest();
+    } catch (err1) {
+        try {
+            objetoAjax = new ActiveXObject("Msxml2.XMLHTTP");
+        } catch (err2) {
+            try {
+                objetoAjax = new ActiveXObject("Microsoft.XMLHTTP");
+            } catch (err3) {
+                objetoAjax = false;
+            }
+        }
+    }
+    return objetoAjax;
+}
+function init() {
+    var JsonString = JSON.stringify(baseJSON, null, 2);
+    document.getElementById("description").value = JsonString;
+}
