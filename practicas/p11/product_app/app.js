@@ -88,3 +88,26 @@ function agregarProducto(e) {
         alert('Error al procesar el JSON: ' + e.message);
     }
 }
+// FUNCIÓN CALLBACK DE BOTÓN "Buscar Producto"
+function buscarProducto(e) {
+    e.preventDefault();
+    var search = document.getElementById('search').value;
+
+    var client = getXMLHttpRequest();
+    client.open('POST', './backend/read.php', true);
+    client.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    client.onreadystatechange = function () {
+        if (client.readyState == 4 && client.status == 200) {
+            console.log('[CLIENTE]\n' + client.responseText);
+            
+            let productos = JSON.parse(client.responseText);
+
+            if (Array.isArray(productos) && productos.length > 0) {
+                mostrarProductos(productos);
+            } else {
+                document.getElementById("productos").innerHTML = "<tr><td colspan='3'>No se encontraron productos.</td></tr>";
+            }
+        }
+    };
+    client.send("search=" + encodeURIComponent(search));
+}
