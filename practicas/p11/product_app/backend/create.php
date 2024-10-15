@@ -12,3 +12,6 @@ if ($data) {
     $unidades = (int)$data['unidades'];
     $detalles = mysqli_real_escape_string($conexion, $data['detalles']);
     $imagen = mysqli_real_escape_string($conexion, $data['imagen']);
+    // Comprobar si ya existe un producto con el mismo nombre
+    $query = "SELECT * FROM productos WHERE nombre = '$nombre'";
+    $result = $conexion->query($query);
