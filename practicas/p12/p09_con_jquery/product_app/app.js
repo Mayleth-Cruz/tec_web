@@ -170,4 +170,38 @@ $("#product-form").submit(function (e) {
   //boton eliminar
   $(document).on("click", ".product-delete", eliminarProducto);
 
+  //funcion para listar los productos
+  function ListaProductos() {
+    $.ajax({
+      url: "backend/product-list.php",
+      type: "GET",
+      success: function (response) {
+        let products = JSON.parse(response);
+        let template = "";
+        products.forEach((product) => {
+          template += `
+            <tr productId="${product.id}">
+              <td>${product.id}</td>
+              <td>
+                <a href="#" class="product-item">${product.nombre}</a>
+              </td>
+              <td>
+               <li> Precio: $${product.precio}</li>
+               <li> Unidades: ${product.unidades} </li>
+               <li> Modelo: ${product.modelo} </li>
+               <li> Marca: ${product.marca} </li>
+               <li>Detalles: ${product.detalles}</li>
+              </td>
+              <td>
+                <button class="product-delete btn btn-danger">
+                  Eliminar
+                </button>
+              </td>
+            </tr>
+          `;
+        });
+        $("#products").html(template);
+      },
+    });
+  }
 
