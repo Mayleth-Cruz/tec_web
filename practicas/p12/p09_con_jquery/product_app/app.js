@@ -204,4 +204,28 @@ $("#product-form").submit(function (e) {
       },
     });
   }
+  
+    //Editar producto
+    $(document).on("click", ".product-item", function () {
+      let element = $(this)[0].parentElement.parentElement;
+      let id = $(element).attr("productId");
+      $.post("backend/product-single.php", { id }, function (response) {
+        const product = JSON.parse(response);
+        $("#name").val(product.nombre);
+        var updatedJSON = {
+          precio: Number(product.precio),
+          unidades: Number(product.unidades),
+          modelo: product.modelo,
+          marca: product.marca,
+          detalles: product.detalles || baseJSON.detalles,
+          imagen: product.imagen || baseJSON.imagen,
+        };
+        
+        $("#description").val(JSON.stringify(updatedJSON, null, 2));
+        $("#productId").val(product.id);
+        edit = true;
+      });
+    });
+    
+  });
 
