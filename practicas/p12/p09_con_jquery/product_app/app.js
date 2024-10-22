@@ -112,5 +112,27 @@ $("#product-form").submit(function (e) {
       alert(errores.join('\n'));
       return;
   }
+  let url_1 = edit === false ? "backend/product-add.php" : "backend/product-edit.php";
+
+  $.ajax({
+      url: url_1,
+      type: "POST",
+      ContentType: "application/json",
+      data: JSON.stringify(finalproducto),
+      success: function (response) {
+          ListaProductos();
+          let message = JSON.parse(response);
+          let template = `<p>${message.message}</p>`;
+          
+          if (message.message.length > 0) {
+              $("#product-result").removeClass("d-none");
+          }
+          $("#container").html(template);
+      },
+      error: function (err) {
+          console.error("Error al agregar producto:", err);
+      },
+  });
+});
 
 
