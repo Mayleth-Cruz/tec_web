@@ -49,3 +49,29 @@ $(document).ready(function () {
       },
     });
   });
+  //Enviar productos
+$("#product-form").submit(function (e) {
+  e.preventDefault();
+  let errores = [];
+  let id = $("#productId").val();
+  let nombre = $("#name").val();
+  let productos = JSON.parse($("#description").val());
+
+  let marca = productos.marca;
+  let modelo = productos.modelo;
+  let precio = productos.precio;
+  let detalles = productos.detalles;
+  let unidades = productos.unidades;
+  let imagen = productos.imagen;
+
+  const finalproducto = {
+      id: id,
+      nombre: nombre,
+      marca: marca,
+      modelo: modelo,
+      precio: precio,
+      detalles: detalles,
+      unidades: unidades,
+      imagen: imagen,
+  };
+
