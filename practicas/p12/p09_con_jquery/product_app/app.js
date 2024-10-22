@@ -134,5 +134,40 @@ $("#product-form").submit(function (e) {
       },
   });
 });
+  // Eliminar producto
+  function eliminarProducto() {
+    if (confirm("¿Deseas eliminar el producto?")) {
+      var id = $(this).closest("tr").attr("productId"); 
+  
+      $.ajax({
+        url: `backend/product-delete.php?id=${id}`,
+        type: "GET",
+        contentType: "application/x-www-form-urlencoded",
+        success: function (response) {
+          let respuesta = JSON.parse(response);
+  
+          let template_bar = `
+            <p>${respuesta.status}</p>
+            <p>${respuesta.message}</p>
+          `;
+  
+          // Mostrar el contenedor si hay un mensaje
+          if (respuesta.message.length > 0) {
+            $("#product-result").removeClass("d-none").addClass("d-block");
+          }
+  
+          $("#container").html(template_bar);
+  
+          // Recargar la lista de productos después de eliminar
+          ListaProductos();
+        },
+        error: function (err) {
+          console.error("Error al eliminar el producto:", err);
+        },
+      });
+    }
+  }
+  //boton eliminar
+  $(document).on("click", ".product-delete", eliminarProducto);
 
 
