@@ -1,0 +1,69 @@
+<catalogoVOd>
+    <cuenta>
+        <correo>maycruz510@gmail.com</correo>
+        <perfiles>
+            <perfil>
+                <usuario>Mayleth</usuario>
+                <usuario>Josue</usuario>
+                <idioma>Español</idioma>
+            </perfil>
+        </perfiles>
+    </cuenta>
+
+    <contenido>
+        <peliculas>
+            <genero>
+                <nombre>Slasher</nombre>
+                <nombre>Animacion</nombre>
+                <titulo>
+                    <nombrepeli>Maxxxine</nombrepeli>
+                    <duracion>1h 44m</duracion>
+                    <nombrepeli>Midsommar</nombrepeli>
+                    <duracion>2h 28m</duracion>
+                    <nombrepeli>Suspiria</nombrepeli>
+                    <duracion>2h 32m</duracion>
+                    <nombrepeli>Hasta los huesos</nombrepeli>
+                    <duracion>2h 10m</duracion>
+
+                    <nombrepeli>Mi vecino Totoro</nombrepeli>
+                    <duracion>1h 35m</duracion>
+                    <nombrepeli>El viaje de Chihiro</nombrepeli>
+                    <duracion>2h 5m</duracion>
+                    <nombrepeli>El increible castillo vagabundo</nombrepeli>
+                    <duracion>1h 59m</duracion>
+                    <nombrepeli>Ponyo</nombrepeli>
+                    <duracion>1h 43m</duracion>
+
+
+                </titulo>
+            </genero>
+        </peliculas>
+
+        <programas>
+            <genero>
+                <nombre>Series documentales</nombre>
+                <nombre>Reality show</nombre>
+                <titulo>
+                    <nombreprogra>Las cintas de Jeffrey Dahmer</nombreprogra>
+                    <duracion>3 episodios</duracion>
+                    <nombreprogra>Desaparicion en el hotel Cecil</nombreprogra>
+                    <duracion>4 episodios</duracion>
+                    <nombreprogra>El estafador de Tinder</nombreprogra>
+                    <duracion>1h 54m</duracion>
+                    <nombreprogra>El ultimo baile</nombreprogra>
+                    <duracion>10 episodios</duracion>
+
+                    <nombreprogra>El plan del diablo</nombreprogra>
+                    <duracion>12 episodios</duracion>
+                    <nombreprogra>Cucharas negras vs Cucharas blancas</nombreprogra>
+                    <duracion>10 episodios</duracion>
+                    <nombreprogra>Academia del chocolate</nombreprogra>
+                    <duracion>8 episodios</duracion>
+                    <nombreprogra>America's Sweethearts</nombreprogra>
+                    <duracion>7 episodios</duracion>
+                </titulo>
+
+            </genero>
+        </programas>
+    </contenido>
+</catalogoVOd>
