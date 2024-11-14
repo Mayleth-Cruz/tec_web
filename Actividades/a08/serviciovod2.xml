@@ -1,0 +1,42 @@
+<catalogoVOd>
+    <cuenta correo="maycruz510@gmail.com">
+        <perfiles>
+            <perfil usuario="Mayleth" idioma="Español" />
+            <perfil usuario="Josue" idioma="Español" />
+        </perfiles>
+    </cuenta>
+
+    <contenido>
+        <peliculas>
+            <genero nombregenero="Slasher">
+                <titulo nombre="Maxxxine" duracion="1h 44m" />
+                <titulo nombre="Midsommar" duracion="2h 28m" />
+                <titulo nombre="Suspiria" duracion="2h 32m" />
+                <titulo nombre="Hasta los huesos" duracion="2h 10m" />
+            </genero>
+
+            <genero nombregenero="Animacion">
+                <titulo nombre="Mi vecino Totoro" duracion="1h 35m" />
+                <titulo nombre="El viaje de Chihiro" duracion="2h 5m" />
+                <titulo nombre="El increible castillo vagabundo" duracion="1h 59m" />
+                <titulo nombre="Ponyo" duracion="1h 43m" />
+            </genero>
+        </peliculas>
+
+        <programas>
+            <genero nombregenero="Series documentales">
+                <titulo nombre="Las cintas de Jeffrey Dahmer" duracion="3 episodios" />
+                <titulo nombre="Desaparicion en el hotel Cecil" duracion="4 episodios" />
+                <titulo nombre="El estafador de Tinder" duracion="1h 54m" />
+                <titulo nombre="El ultimo baile" duracion="10 episodios" />
+            </genero>
+
+            <genero nombregenero="Reality show">
+                <titulo nombre="El plan del diablo" duracion="12 episodios" />
+                <titulo nombre="Cucharas negras vs Cucharas blancas" duracion="10 episodios" />
+                <titulo nombre="Academia del chocolate" duracion="8 episodios" />
+                <titulo nombre="America's Sweethearts" duracion="7 episodios" />
+            </genero>
+        </programas>
+    </contenido>
+</catalogoVOd>
